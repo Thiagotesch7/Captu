@@ -1,14 +1,26 @@
 package com.senai.captu.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-public class categoria {
+@Entity
+@Table (name = "categoria")
+public class Categoria {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id")
     private int id;
+    @Column (name = "nome_categoria")
     private String nomeCategoria;
 
-    public categoria() {
+    public Categoria() {
     }
 
-    public categoria(int id, String nomeCategoria) {
+    public Categoria(int id, String nomeCategoria) {
         this.id = id;
         this.nomeCategoria = nomeCategoria;
     }

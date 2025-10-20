@@ -1,16 +1,32 @@
 package com.senai.captu.models;
 
 
-public class notausuario {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "notausuario")
+
+public class Notausuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id")
     private int id;
+    @Column (name = "usuario_id")
     private int usuarioId;
+    @Column (name = "livro_id")
     private int livroId;
+    @Column (name = "avaliacao_id")
     private int avaliacaoId;
 
-    public notausuario() {
+    public Notausuario() {
     }
 
-    public notausuario(int id, int usuarioId, int livroId, int avaliacaoId) {
+    public Notausuario(int id, int usuarioId, int livroId, int avaliacaoId) {
         this.id = id;
         this.usuarioId = usuarioId;
         this.livroId = livroId;

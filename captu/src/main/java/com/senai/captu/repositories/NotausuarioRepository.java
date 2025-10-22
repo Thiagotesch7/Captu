@@ -7,7 +7,7 @@ import com.senai.captu.models.Categoria;
 import com.senai.captu.models.Notausuario;
 
 @Repository
-public interface Notausuariorepository extends JpaRepository <Notausuario, Integer>{
+public interface NotausuarioRepository extends JpaRepository <Notausuario, Integer>{
 
    Object Saveall = null; 
 } 

@@ -4,10 +4,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.senai.captu.models.Categoria;
-import com.senai.captu.models.Notausuario;
+import com.senai.captu.models.Livro;
 
 @Repository
-public interface Notausuariorepository extends JpaRepository <Notausuario, Integer>{
+public interface LivroRepository extends JpaRepository <Livro, Integer>{
 
-   Object Saveall = null; 
+    Object Saveall = null;
+    
 } 

@@ -20,7 +20,7 @@ private List<Usuario> usuarios = new ArrayList<>();
 
     public boolean cadastrar(Usuario novoUsuario) {
         for (Usuario u : usuarios) {
-            if (u.getEmail().equals(novoUsuario.getEmail())) {
+           if ("email@example.com".equals(u.getEmail())) {
                 return false; 
             }
         }
@@ -30,7 +30,7 @@ private List<Usuario> usuarios = new ArrayList<>();
 
     public boolean login(String email, String senha) {
         for (Usuario u : usuarios) {
-            if (u.getEmail().equals(email) && u.getSenha().equals(senha)) {
+            if (email.equals(u.getEmail()) && senha.equals(u.getSenha())) {
                 return true;
             }
         }

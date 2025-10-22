@@ -25,15 +25,15 @@ public class Usuarioservice {
 
 private List<Usuario> usuarios = new ArrayList<>();
 
-    public Usuario cadastrar(Usuario novoUsuario) {
+    public boolean cadastrar(Usuario novoUsuario) {
         /*for (Usuario u : usuarios) {
            if ("email@example.com".equals(u.getEmail())) {
                 return false; 
             }
         }*/
         //usuarios.add(novoUsuario);
-        return usuarioRepository.save(novoUsuario);
-        //return true;
+        usuarioRepository.save(novoUsuario);
+        return true;
     }
 
     public boolean login(String email, String senha) {

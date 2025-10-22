@@ -7,7 +7,7 @@ import com.senai.captu.models.Categoria;
 import com.senai.captu.models.Livro;
 
 @Repository
-public interface Livrorepository extends JpaRepository <Livro, Integer>{
+public interface LivroRepository extends JpaRepository <Livro, Integer>{
 
     Object Saveall = null;
     

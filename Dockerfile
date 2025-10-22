@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 ENV MAVEN_HOME=/opt/maven
 ENV PATH=$MAVEN_HOME/bin:$PATH
-COPY pom.xml .
+COPY captu/pom.xml .
 RUN mvn dependency:go-offline -B || true
 COPY captu/src ./src
 RUN mvn clean package -DskipTests

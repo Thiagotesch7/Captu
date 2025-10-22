@@ -1,4 +1,4 @@
 # Captu
 Captu
 
-https://prod.liveshare.vsengsaas.visualstudio.com/join?A99DA5A270E6AC04058935EDA54F7EE26F8B
+https://prod.liveshare.vsengsaas.visualstudio.com/join?DCA12AB9475383B1DEEE0365ADF9FA4E2604

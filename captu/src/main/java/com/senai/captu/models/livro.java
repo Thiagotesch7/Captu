@@ -1,8 +1,5 @@
 package com.senai.captu.models;
-
 import java.util.List;
-
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,18 +25,28 @@ public class Livro {
     private String autor;
     @Column (name = "sinopse")
     private String sinopse;
-    @Column (name = "categoria_id")
-    private int categoriaId;
 
-    public Livro() {
+    @ManyToMany
+    @JoinTable(
+    name = "livro_categoria",
+    joinColumns = @JoinColumn(name = "livro_id"),
+    inverseJoinColumns = @JoinColumn(name = "categoria_id")
+)
+
+private List<Categoria> categorias;
+
+@ManyToMany(mappedBy = "livros")
+private List<Usuario> usuarios;
+
+       public Livro() {
     }
 
-    public Livro(int id, String nome, String autor, String sinopse, int categoriaId) {
+
+    public Livro(int id, String nome, String autor, String sinopse) {
         this.id = id;
         this.nome = nome;
         this.autor = autor;
         this.sinopse = sinopse;
-        this.categoriaId = categoriaId;
     }
 
     public int getId() {
@@ -74,25 +81,21 @@ public class Livro {
         this.sinopse = sinopse;
     }
 
-    public int getCategoriaId() {
-        return categoriaId;
+    public List<Categoria> getCategorias() {
+        return categorias;
     }
 
-    public void setCategoriaId(int categoriaId) {
-        this.categoriaId = categoriaId;
+    public void setCategorias(List<Categoria> categorias) {
+        this.categorias = categorias;
     }
 
-    @ManyToMany
-    @JoinTable(
-    name = "livro_categoria",
-    joinColumns = @JoinColumn(name = "livro_id"),
-    inverseJoinColumns = @JoinColumn(name = "categoria_id")
-)
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
 
-private List<Categoria> categorias;
-
-@ManyToMany(mappedBy = "livros")
-private List<Usuario> usuarios;
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
 
     
 }

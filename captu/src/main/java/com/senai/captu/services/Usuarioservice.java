@@ -16,16 +16,24 @@ public class Usuarioservice {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+
+ public Usuario a(Usuario usuario){
+        return usuarioRepository.save(usuario);
+    }
+
+
+
 private List<Usuario> usuarios = new ArrayList<>();
 
-    public boolean cadastrar(Usuario novoUsuario) {
-        for (Usuario u : usuarios) {
+    public Usuario cadastrar(Usuario novoUsuario) {
+        /*for (Usuario u : usuarios) {
            if ("email@example.com".equals(u.getEmail())) {
                 return false; 
             }
-        }
-        usuarios.add(novoUsuario);
-        return true;
+        }*/
+        //usuarios.add(novoUsuario);
+        return usuarioRepository.save(novoUsuario);
+        //return true;
     }
 
     public boolean login(String email, String senha) {
@@ -35,5 +43,7 @@ private List<Usuario> usuarios = new ArrayList<>();
             }
         }
         return false;
-    }
-}
+        }
+
+
+        }

@@ -1,11 +1,14 @@
 package com.senai.captu.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 @Table (name = "categoria")
@@ -42,7 +45,10 @@ public class Categoria {
     }
 
 
-    
+@ManyToMany(mappedBy = "categorias")
+private List<Livro> livros;
+
+
 
 }
 

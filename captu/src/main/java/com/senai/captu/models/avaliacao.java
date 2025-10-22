@@ -16,13 +16,16 @@ public class Avaliacao {
     private int id;
     @Column (name = "nota")
     private String nota;
+    @Column (name = "resenha")
+    private String resenha;
 
     public Avaliacao() {
     }
 
-    public Avaliacao(int id, String nota) {
+    public Avaliacao(int id, String nota, String resenha) {
         this.id = id;
         this.nota = nota;
+        this.resenha = resenha;
     }
 
     public int getId() {
@@ -41,7 +44,16 @@ public class Avaliacao {
         this.nota = nota;
     }
 
+    public String getResenha() {
+        return resenha;
+    }
+
+    public void setResenha(String resenha) {
+        this.resenha = resenha;
+    }
     
+    
+
     
 }
 

@@ -1,10 +1,17 @@
 package com.senai.captu.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+
+
 
 @Entity
 @Table(name = "usuario")
@@ -13,16 +20,14 @@ public class Usuario {
     @GeneratedValue 
     @Column (name = "id")
     private int id;
-    @Column (name = "e-mail")
+    @Column (name = "email")
     private String email;
     @Column (name = "senha")
     private String senha;
 
-    // Construtor padrão
     public Usuario() {
     }
 
-    // Construtor parametrizado
     public Usuario(int id, String email, String senha) {
         this.id = id;
         this.email = email;
@@ -53,8 +58,13 @@ public class Usuario {
         this.senha = senha;
     }
 
-    // Getters e Setters...
-    
-}
+    @ManyToMany
+    @JoinTable(
+    name = "usuario_livro",
+    joinColumns = @JoinColumn(name = "usuario_id"),
+    inverseJoinColumns = @JoinColumn(name = "livro_id")
+)
+private List<Livro> livros;
 
+}
 

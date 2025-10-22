@@ -1,11 +1,17 @@
 package com.senai.captu.models;
 
+import java.util.List;
+
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
 
 @Entity
 @Table(name = "livro")
@@ -75,6 +81,18 @@ public class Livro {
     public void setCategoriaId(int categoriaId) {
         this.categoriaId = categoriaId;
     }
+
+    @ManyToMany
+    @JoinTable(
+    name = "livro_categoria",
+    joinColumns = @JoinColumn(name = "livro_id"),
+    inverseJoinColumns = @JoinColumn(name = "categoria_id")
+)
+
+private List<Categoria> categorias;
+
+@ManyToMany(mappedBy = "livros")
+private List<Usuario> usuarios;
 
     
 }

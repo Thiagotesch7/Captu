@@ -1,20 +1,39 @@
 package com.senai.captu.services;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.senai.captu.models.Usuario;
-import com.senai.captu.repositories.Usuariorepository;
-
-import jakarta.validation.constraints.Email;
+import com.senai.captu.repositories.UsuarioRepository;
 
 @Service
 public class Usuarioservice {
-    private Usuariorepository usuariorepository;
-    public String login(String email, String senha) {
-        Usuario usuario = usuariorepository.findBy(email);
-        return "Usuario logado com sucesso";
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
+private List<Usuario> usuarios = new ArrayList<>();
+
+    public boolean cadastrar(Usuario novoUsuario) {
+        for (Usuario u : usuarios) {
+            if (u.getEmail().equals(novoUsuario.getEmail())) {
+                return false; 
+            }
+        }
+        usuarios.add(novoUsuario);
+        return true;
     }
-    return "Falha ao logar o Usuario";
 
-
+    public boolean login(String email, String senha) {
+        for (Usuario u : usuarios) {
+            if (u.getEmail().equals(email) && u.getSenha().equals(senha)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
